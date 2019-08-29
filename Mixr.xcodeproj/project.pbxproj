@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6C4D8E723184ED300E9E335 /* SoundCloudAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6C4D8E623184ED300E9E335 /* SoundCloudAPI.swift */; };
 		B6CC844B22FF1EDF005DAE53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC844A22FF1EDF005DAE53 /* AppDelegate.swift */; };
 		B6CC844D22FF1EDF005DAE53 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC844C22FF1EDF005DAE53 /* HomeViewController.swift */; };
 		B6CC845222FF1EE0005DAE53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6CC845122FF1EE0005DAE53 /* Assets.xcassets */; };
 		B6CC845522FF1EE0005DAE53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B6CC845322FF1EE0005DAE53 /* LaunchScreen.storyboard */; };
 		B6CC845F22FF2823005DAE53 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC845E22FF2823005DAE53 /* AppState.swift */; };
 		B6CC846122FF2D61005DAE53 /* AppReducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC846022FF2D61005DAE53 /* AppReducer.swift */; };
-		B6CC846622FF3DBB005DAE53 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC846522FF3DBB005DAE53 /* ViewModel.swift */; };
 		B6CC846822FF3DC5005DAE53 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6CC846722FF3DC5005DAE53 /* HomeCoordinator.swift */; };
 		B6EE40CE2308C7BF00B174CF /* HomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6EE40CD2308C7BF00B174CF /* HomeView.xib */; };
 		BAFBAA57CAD3452866AF546D /* Pods_Mixr.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ECB661A53BC520017504807 /* Pods_Mixr.framework */; };
@@ -22,6 +22,7 @@
 /* Begin PBXFileReference section */
 		5A1DE31D779206A80B79FE9D /* Pods-Mixr.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mixr.release.xcconfig"; path = "Pods/Target Support Files/Pods-Mixr/Pods-Mixr.release.xcconfig"; sourceTree = "<group>"; };
 		6ECB661A53BC520017504807 /* Pods_Mixr.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Mixr.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6C4D8E623184ED300E9E335 /* SoundCloudAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SoundCloudAPI.swift; path = Pods/SoundCloudAPI.swift; sourceTree = SOURCE_ROOT; };
 		B6CC844722FF1EDF005DAE53 /* Mixr.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Mixr.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6CC844A22FF1EDF005DAE53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6CC844C22FF1EDF005DAE53 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -30,7 +31,6 @@
 		B6CC845622FF1EE0005DAE53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B6CC845E22FF2823005DAE53 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		B6CC846022FF2D61005DAE53 /* AppReducer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReducer.swift; sourceTree = "<group>"; };
-		B6CC846522FF3DBB005DAE53 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		B6CC846722FF3DC5005DAE53 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		B6EE40CD2308C7BF00B174CF /* HomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeView.xib; sourceTree = "<group>"; };
 		FF7D7064ABEE49C13E4349DB /* Pods-Mixr.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Mixr.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Mixr/Pods-Mixr.debug.xcconfig"; sourceTree = "<group>"; };
@@ -87,12 +87,12 @@
 			isa = PBXGroup;
 			children = (
 				B6EE40CA2308C4B100B174CF /* Home View */,
-				B6EE40C92308C4AC00B174CF /* Base */,
 				B6CC846222FF322D005DAE53 /* Store */,
 				B6CC844A22FF1EDF005DAE53 /* AppDelegate.swift */,
 				B6CC845122FF1EE0005DAE53 /* Assets.xcassets */,
 				B6CC845322FF1EE0005DAE53 /* LaunchScreen.storyboard */,
 				B6CC845622FF1EE0005DAE53 /* Info.plist */,
+				B6C4D8E623184ED300E9E335 /* SoundCloudAPI.swift */,
 			);
 			path = Mixr;
 			sourceTree = "<group>";
@@ -102,23 +102,15 @@
 			children = (
 				B6CC845E22FF2823005DAE53 /* AppState.swift */,
 				B6CC846022FF2D61005DAE53 /* AppReducer.swift */,
-				B6CC846722FF3DC5005DAE53 /* HomeCoordinator.swift */,
 			);
 			path = Store;
-			sourceTree = "<group>";
-		};
-		B6EE40C92308C4AC00B174CF /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		B6EE40CA2308C4B100B174CF /* Home View */ = {
 			isa = PBXGroup;
 			children = (
+				B6CC846722FF3DC5005DAE53 /* HomeCoordinator.swift */,
 				B6CC844C22FF1EDF005DAE53 /* HomeViewController.swift */,
-				B6CC846522FF3DBB005DAE53 /* ViewModel.swift */,
 				B6EE40CD2308C7BF00B174CF /* HomeView.xib */,
 			);
 			path = "Home View";
@@ -249,7 +241,7 @@
 				B6CC844D22FF1EDF005DAE53 /* HomeViewController.swift in Sources */,
 				B6CC844B22FF1EDF005DAE53 /* AppDelegate.swift in Sources */,
 				B6CC846122FF2D61005DAE53 /* AppReducer.swift in Sources */,
-				B6CC846622FF3DBB005DAE53 /* ViewModel.swift in Sources */,
+				B6C4D8E723184ED300E9E335 /* SoundCloudAPI.swift in Sources */,
 				B6CC845F22FF2823005DAE53 /* AppState.swift in Sources */,
 				B6CC846822FF3DC5005DAE53 /* HomeCoordinator.swift in Sources */,
 			);

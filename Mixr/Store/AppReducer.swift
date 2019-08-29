@@ -1,5 +1,5 @@
 //
-//  SongState.swift
+//  AppReducer.swift
 //  Mixr
 //
 //  Created by Tevin Scott on 8/10/19.
@@ -20,8 +20,9 @@ class AppReducer: SubStateReducer {
             newState.currentSong = newSong
         case .setListOfSongs(let newListOfSongs):
             newState.listOfSongs = newListOfSongs
+        case .setCurrentSongImage(let image):
+            newState.currentSong?.songImage = image
         }
-        
         return newState
     }
     
@@ -39,6 +40,7 @@ class AppReducer: SubStateReducer {
 
 enum AppAction: Action {
     case setCurrentSong(newSong: SongState)
+    case setCurrentSongImage(image: UIImage)
     case setListOfSongs(newListOfSongs: LoadingState<[SongState]>)
 }
 

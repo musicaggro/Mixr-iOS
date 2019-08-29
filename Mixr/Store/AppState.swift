@@ -15,10 +15,17 @@ public struct AppState: StateType {
 }
 
 public struct SongState {
-    var songName: String
+    public var songName: String?
+    public var artist: String?
+    public var songImage: UIImage?
     
     init(songName: String) {
         self.songName = songName
+    }
+    
+    init(trackResponse: TrackResponse) {
+        self.songName = trackResponse.title
+        self.artist = trackResponse.publisher_metadata?.artist
     }
 }
 

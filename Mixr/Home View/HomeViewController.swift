@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeViewController.swift
 //  Mixr
 //
 //  Created by Tevin Scott on 8/10/19.
@@ -10,7 +10,7 @@ import UIKit
 import ReSwift
 
 protocol ViewHandler {
-    func initiateSearch()
+    func initiateSearch(for text: String)
 }
 
 class HomeViewController: UIViewController, StoreSubscriber, UITextFieldDelegate {
@@ -18,7 +18,7 @@ class HomeViewController: UIViewController, StoreSubscriber, UITextFieldDelegate
     var viewDelegate: ViewHandler!
     
     @IBOutlet weak var searchField: UITextField!
-    
+    @IBOutlet weak var SongImage: UIImageView!
     @IBOutlet weak var result: UILabel!
     
     init(delegate: ViewHandler) {
@@ -52,13 +52,25 @@ class HomeViewController: UIViewController, StoreSubscriber, UITextFieldDelegate
     }
     
     @IBAction func searchButtonTapped(_ sender: Any) {
-        viewDelegate.initiateSearch()
+        guard
+            let searchText = searchField.text,
+            !searchText.isEmpty else {
+                return
+        }
+        
+        viewDelegate.initiateSearch(for: searchText)
     }
     
     func newState(state: AppState) {
         
-        if let currentSong = state.currentSong?.songName {
-            result.text = currentSong
+        if let songName = state.currentSong?.songName,
+            let artist = state.currentSong?.artist {
+            result.text = "\(songName) - \(artist)"
         }
+        
+        if let artwork = state.currentSong?.songImage {
+            SongImage.image = artwork
+        }
+        
     }
 }
