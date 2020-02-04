@@ -8,6 +8,7 @@
 
 import UIKit
 import ReSwift
+import AVKit
 
 protocol ViewHandler {
     func initiateSearch(for text: String)
@@ -20,6 +21,8 @@ class HomeViewController: UIViewController, StoreSubscriber, UITextFieldDelegate
     @IBOutlet weak var searchField: UITextField!
     @IBOutlet weak var SongImage: UIImageView!
     @IBOutlet weak var result: UILabel!
+    @IBOutlet weak var pauseAndPlayButton: UIButton!
+    var avPlayer: AVPlayer?
     
     init(delegate: ViewHandler) {
         self.viewDelegate = delegate
@@ -48,17 +51,6 @@ class HomeViewController: UIViewController, StoreSubscriber, UITextFieldDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-    @IBAction func searchButtonTapped(_ sender: Any) {
-        guard
-            let searchText = searchField.text,
-            !searchText.isEmpty else {
-                return
-        }
-        
-        viewDelegate.initiateSearch(for: searchText)
     }
     
     func newState(state: AppState) {
@@ -73,4 +65,36 @@ class HomeViewController: UIViewController, StoreSubscriber, UITextFieldDelegate
         }
         
     }
+    
+    // Button Actions
+    
+    @IBAction func searchButtonTapped(_ sender: Any) {
+        guard
+            let searchText = searchField.text,
+            !searchText.isEmpty else {
+                return
+        }
+
+        viewDelegate.initiateSearch(for: searchText)
+        if let streamURL = URL(string: "") {
+        
+            avPlayer = AVPlayer(url: streamURL)
+        }
+        
+    }
+    
+    private func isPlaying() -> Bool {
+        return avPlayer?.rate != nil && avPlayer?.rate != 0
+    }
+    
+    @IBAction func playToggleTapped(_ sender: Any) {
+        if isPlaying() {
+            avPlayer?.pause()
+        } else {
+            avPlayer?.play()
+        }
+    }
+    
+    
+    
 }

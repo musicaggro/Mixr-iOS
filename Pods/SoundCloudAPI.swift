@@ -22,22 +22,45 @@ public struct SoundCloudResponse: Codable {
     var collection: [TrackResponse?]
 }
 
-public struct publisherMetadata: Codable {
-    public var artist: String?
-}
-
 public struct TrackResponse: Codable {
     public var title: String?
     public var publisher_metadata: publisherMetadata?
     public var artwork_url: String?
+    public var media: MediaResponse
 }
 
+public struct TrackStreamingResponse: Codable {
+    var url: String?
+}
+
+public struct publisherMetadata: Codable {
+    public var artist: String?
+}
+
+
+
+public struct MediaResponse: Codable {
+    public var transcodings: [TranscodingsResponse]
+}
+
+public struct TranscodingsResponse: Codable {
+    public var url: String
+    public var duration: String
+    public var format: AudioCodecTypeResponse
+    public var quality: String
+
+}
+
+public struct AudioCodecTypeResponse: Codable {
+    public var `protocol` : String
+    public var mime_type: String
+}
 
 class SoundCloudAPI {
     
     let searchURL = "https://api-v2.soundcloud.com/search"
     
-    let genericError = NSError( domain: "PromiseKitTutorial",
+    let genericError = NSError( domain: "Endpoint Error",
                                 code: 0,
                                 userInfo: [NSLocalizedDescriptionKey: "Unknown error"])
     
@@ -62,6 +85,7 @@ class SoundCloudAPI {
     
     func performSearch(for text: String, searchType: SearchType) -> Promise<SoundCloudResponse?> {
         return Promise { seal in
+            var baseURL = URLComponents(string: "\(searchURL)")!
             let queryItems = [URLQueryItem(name: "q", value: text),
                               URLQueryItem(name: "client_id", value: clientID),
                               URLQueryItem(name: "limit", value: "10"),
@@ -69,9 +93,9 @@ class SoundCloudAPI {
                               URLQueryItem(name: "linked_partitioning", value: "1"),
                               URLQueryItem(name: "app_version", value: "1567082993"),
                               URLQueryItem(name: "app_locale", value: "en")]
-            var urlComps = URLComponents(string: searchURL)!
-            urlComps.queryItems = queryItems
-            guard let url = urlComps.url else {
+            
+            baseURL.queryItems = queryItems
+            guard let url = baseURL.url else {
                 return
             }
             var request = URLRequest(url: url)

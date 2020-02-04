@@ -20,30 +20,22 @@ class HomeCoordinator: ViewHandler {
     }
     
     func initiateSearch(for text: String) {
-        
+        store.dispatch(AppAction.setListOfSongs(newListOfSongs: .loading))
         soundCloudAPI.performSearch(for: text, searchType: .everything)
-        .then { listOfSongs -> Promise<String?> in
-            guard
-                let firstSongInCollection = listOfSongs?.collection.first,
-                let artworkURL = firstSongInCollection?.artwork_url else {
-                return .value(nil)
+        .then { listOfSongs -> Promise<Void> in
+            guard let songCollection = listOfSongs?.collection else {
+                store.dispatch(AppAction.setListOfSongs(newListOfSongs: .failed))
+                return Promise()
             }
-            let firstSong = SongState(trackResponse: firstSongInCollection!)
-            store.dispatch(AppAction.setCurrentSong(newSong: firstSong))
-            return .value(artworkURL)
-        }
-        .then { artworkURL -> Promise<UIImage?> in
-            guard let url = artworkURL else {
-                return .value(nil)
+            
+            let arrayOfSongStates = songCollection.compactMap { SongState(trackResponse: $0)}
+            
+            var exampleArrayOfSongStates: [SongState] = []
+            for song in songCollection {
+                exampleArrayOfSongStates.append(SongState(trackResponse: song))
             }
-            return self.soundCloudAPI.loadSongImage(artworkURL: url)
+            store.dispatch(AppAction.setListOfSongs(newListOfSongs: .loaded(arrayOfSongStates)))
+            
         }
-        .then { currentSongImage -> Promise<Void> in
-            if let image = currentSongImage {
-                store.dispatch(AppAction.setCurrentSongImage(image: image))
-            }
-            return Promise()
-        }
-        
     }
 }

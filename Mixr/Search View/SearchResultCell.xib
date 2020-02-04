@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SearchResultCell" customModule="Mixr" customModuleProvider="target">
+            <connections>
+                <outlet property="artistLabel" destination="FX1-Fa-SgY" id="jcq-Vf-Mrd"/>
+                <outlet property="artworkImageView" destination="PKj-0N-zaY" id="nYf-fH-rrx"/>
+                <outlet property="durationLabel" destination="bua-3Y-vfI" id="ztO-Pl-RPd"/>
+                <outlet property="songNameLabel" destination="gci-9r-Eeu" id="Vyp-uY-Aj8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="SearchResultCell" rowHeight="114" id="8eF-9L-Fhl" customClass="SearchResultCell" customModule="Mixr" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="114"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8eF-9L-Fhl" id="dHf-ZO-iD8">
+                <rect key="frame" x="0.0" y="0.0" width="423" height="113.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PKj-0N-zaY">
+                        <rect key="frame" x="28" y="15" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="PoW-i5-O9E"/>
+                            <constraint firstAttribute="width" secondItem="PKj-0N-zaY" secondAttribute="height" multiplier="1:1" id="k2v-SF-1EB"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="song name Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gci-9r-Eeu">
+                        <rect key="frame" x="116" y="15" width="132" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="artist label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FX1-Fa-SgY">
+                        <rect key="frame" x="116" y="44" width="132" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="duration label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bua-3Y-vfI">
+                        <rect key="frame" x="116" y="73" width="132" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PKj-0N-zaY" firstAttribute="leading" secondItem="dHf-ZO-iD8" secondAttribute="leadingMargin" constant="8" id="2Nz-dt-ZUl"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="PKj-0N-zaY" secondAttribute="bottom" constant="4" id="QNe-Ec-y76"/>
+                    <constraint firstItem="PKj-0N-zaY" firstAttribute="top" secondItem="dHf-ZO-iD8" secondAttribute="topMargin" constant="4" id="aDN-0s-bam"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="332" y="-213.19340329835083"/>
+        </tableViewCell>
+    </objects>
+</document>
